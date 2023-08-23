@@ -1,0 +1,1 @@
+Разработано в <a href="https://idem.agency/" target="_blank">idem.agency</a>

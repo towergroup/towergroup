@@ -1,0 +1,46 @@
+<?
+$aMenuLinks = Array(
+    Array(
+        "Новостройки",
+		"/spb/novostroyki/",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Вторичная",
+        "/spb//kupit-kvartiru/",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Загородная",
+        "/spb/kupit-dom/",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Зарубежная",
+        "/spb/nedvizhimost-za-rubezhom/",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "О нас",
+        "/spb/about/",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Контакты",
+        "/spb/contacts/",
+        Array(),
+        Array(),
+        ""
+    )
+);
+?>

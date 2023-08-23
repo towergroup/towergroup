@@ -1,0 +1,25 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"Квартиры",
+		"/moskva/novostroyki/",
+		Array(), 
+		Array(),
+		"" 
+	),
+    Array(
+        "Апартаменты",
+        "/moskva/novostroyki/?search=[]&buildtype=8",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Таунхаусы",
+        "/moskva/novostroyki/?search=[]&buildtype=2",
+        Array(),
+        Array(),
+        ""
+    ),
+);
+?>

@@ -1,0 +1,6 @@
+<?
+$sSectionName = "Загородная";
+$arDirProperties = Array(
+
+);
+?>

@@ -1,0 +1,39 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"Студии",
+		"/spb/novostroyki/?search=[]&rooms=28",
+		Array(), 
+		Array(),
+		"" 
+	),
+    Array(
+        "Однокомнатные",
+        "/spb/novostroyki/?search=[]&rooms=30",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Двухкомнатные",
+        "/spb/novostroyki/?search=[]&rooms=29",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Трехкомнатные",
+        "/spb/novostroyki/?search=[]&rooms=32",
+        Array(),
+        Array(),
+        ""
+    ),
+	Array(
+		"Четырехкомнатные",
+		"/spb/novostroyki/?search=[]&rooms=31",
+		Array(), 
+		Array(),
+		"" 
+	),
+);
+?>

@@ -1,0 +1,39 @@
+<?
+$aMenuLinks = Array(
+    Array(
+        "О компании",
+        "/moskva/about/",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Услуги",
+        "/moskva/about/services/",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Отзывы",
+        "/moskva/about/reviews/",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Пресса",
+        "/moskva/pressa/",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Вакансии",
+        "/moskva/about/vacancy/",
+        Array(),
+        Array(),
+        ""
+    ),
+);
+?>
