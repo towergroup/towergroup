@@ -482,6 +482,28 @@ if (file_exists($_SERVER['DOCUMENT_ROOT'].'/local/include/room_types.php')) {
                         </svg>
                     </div>
                 </button>
+                <div class="wrapper-mobile-rooms-filter">
+                    <div class="mobile-rooms-filter details-filter-item">
+                        <div class="form-label">Комнаты</div>
+                        <div class="details-filter-choose">
+                            <? foreach ($arResult['ROOMS_TYPES'] as $arRoom): ?>
+                                <? $arRoom['XML_ID'] = str_replace('rooms_', '', $arRoom['XML_ID']) ?>
+                                <? if ($arRoom['XML_ID'] == 0) {
+                                    $arRoom['XML_ID'] = 'С';
+                                } ?>
+                                <label>
+                                    <input type="checkbox" name="rooms_mobile"
+                                           value="<?= $arRoom['ID']; ?>" <? if (isset($arResult["FILTER_VALUES"]["ROOMS"]) && in_array($arRoom['ID'],
+                                            $arResult["FILTER_VALUES"]["ROOMS"])
+                                    ): ?> checked<? endif; ?> <? if (isset($arResult["OBJECT_ROOMS_TYPES"]) && !in_array($arRoom['ID'],
+                                            $arResult["OBJECT_ROOMS_TYPES"])
+                                    ): ?> disabled<? endif; ?>>
+                                    <span><?= $arRoom['XML_ID']; ?></span>
+                                </label>
+                            <? endforeach; ?>
+                        </div>
+                    </div>
+                </div>
                 <div class="details-objects-sidebar" data-scroll-fx>
                     <div class="div-title div-title-h3">Фильтр</div>
                     <div class="details-filter">
@@ -562,7 +584,7 @@ if (file_exists($_SERVER['DOCUMENT_ROOT'].'/local/include/room_types.php')) {
                                             <input type="checkbox" name="rooms"
                                                    value="<?= $arRoom['ID']; ?>" <? if (isset($arResult["FILTER_VALUES"]["ROOMS"]) && in_array($arRoom['ID'],
                                                     $arResult["FILTER_VALUES"]["ROOMS"])
-                                            ): ?> checked<? endif; ?> <? if (isset($arResult["OBJECT_ROOMS_TYPES"]) && !in_array($arRoom['ID'],
+                                            ): ?> checked="checked"<? endif; ?> <? if (isset($arResult["OBJECT_ROOMS_TYPES"]) && !in_array($arRoom['ID'],
                                                     $arResult["OBJECT_ROOMS_TYPES"])
                                             ): ?> disabled<? endif; ?>>
                                             <span><?= $arRoom['XML_ID']; ?></span>
@@ -1778,6 +1800,7 @@ if (file_exists($_SERVER['DOCUMENT_ROOT'].'/local/include/room_types.php')) {
                         return $(element).val();
                     }).get();
 
+
                     var additionalOptions = jQuery('input[name="additional-options"]:checked').map(function (index, element) {
                         return $(element).val();
                     }).get();
@@ -1889,10 +1912,13 @@ if (file_exists($_SERVER['DOCUMENT_ROOT'].'/local/include/room_types.php')) {
                                 jQuery('#apply-filter').attr('disabled', 'disabled');
                                 //jQuery('.details-objects:not(.-noresult)').html($(html));
                                 var flatsHtml = html;
+
+                                var mobileFilter = $(flatsHtml).filter('.wrapper-mobile-rooms-filter').html();
+                                
+                                jQuery('.wrapper-mobile-rooms-filter').html(mobileFilter);
                                 jQuery('.details-filter').html($(html).find('.details-filter').html());
                                 jQuery('.details-objects-list').html($(flatsHtml).find('.details-objects-list').html());
                                 jQuery('.pagination-more').html($(flatsHtml).find('.pagination-more').html());
-
 
                                 var queryParams = setUrlParamsPageParametrical(params);
                                 history.replaceState(null, null, queryParams);
@@ -1995,13 +2021,30 @@ if (file_exists($_SERVER['DOCUMENT_ROOT'].'/local/include/room_types.php')) {
                     });
                 });
 
-                jQuery(document).on('change', '[data-price-from], [data-price-to] ,[name="rooms"], [name="decoration"], [name="additional-options"], [data-filter-name="square-from"], [data-filter-name="square-to"], [data-filter-name="kitchen-square-from"], [data-filter-name="kitchen-square-to"], [data-filter-name="floor-from"], [data-filter-name="floor-to"]', function (e) {
+                jQuery(document).on('change', '[name="rooms_mobile"]', function (e) {
+                    e.preventDefault();
+                    if ($(this).prop('checked')) {
+                        $('[name="rooms"][value="' + $(this).val() + '"]').attr("checked", "checked");
+                    } else {
+                        $('[name="rooms"][value="' + $(this).val() + '"]').removeAttr("checked");
+                        $('[name="rooms"][value="' + $(this).val() + '"]').prop("checked", false);
+                    }
+                    setTimeout(function(){
+                        //getCount(e);
+                        getObjects();
+                    }, 10);
+
+                });
+
+                jQuery(document).on('change', '[data-price-from], [data-price-to], [name="rooms"], [name="decoration"], [name="additional-options"], [data-filter-name="square-from"], [data-filter-name="square-to"], [data-filter-name="kitchen-square-from"], [data-filter-name="kitchen-square-to"], [data-filter-name="floor-from"], [data-filter-name="floor-to"]', function (e) {
                     getCount(e);
                 });
+
                 jQuery(document).on('click', '#apply-filter, [name="currency"]', function (e) {
                     e.preventDefault();
                     getObjects();
                 });
+
                 jQuery(document).on('click', '#filter-clear', function (e) {
                     e.preventDefault();
                     <?if (SITE_ID == 's1' || SITE_ID == 's2'):?>
@@ -2017,6 +2060,7 @@ if (file_exists($_SERVER['DOCUMENT_ROOT'].'/local/include/room_types.php')) {
                     $('#show-more').addClass('button--refresh-load');
                     getPage();
                 });
+
             });
         </script>
         <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=82e46027-5420-42fe-ba21-2755432ad262"></script>
@@ -2209,11 +2253,11 @@ if (file_exists($_SERVER['DOCUMENT_ROOT'].'/local/include/room_types.php')) {
             </script>
         <? endif; ?>
         <? if (!empty($arResult["OBJECT"]["UF_CONST_PROGRESS"])) : ?>
-        <script>
-            var splide = new Splide( '.splide', {
-                direction: 'ttb',
-                heightRatio: 0.55,
-            } );
-            splide.mount();
-        </script>
+            <script>
+                var splide = new Splide( '.splide', {
+                    direction: 'ttb',
+                    heightRatio: 0.55,
+                } );
+                splide.mount();
+            </script>
         <? endif; ?>

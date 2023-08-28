@@ -687,5 +687,16 @@ form .checkbox input[name="privacy"]+span a {
 		margin-left: 1rem;
 	}
 }
-
+.mobile-rooms-filter {
+	display: none;
+}
+@media (max-width: 1023px){
+	.mobile-rooms-filter {
+		display: block;
+		padding-left: 0;
+		max-width: 100%;
+		margin-top: 0;
+		margin-bottom: 3.6rem;
+	}
+}
 

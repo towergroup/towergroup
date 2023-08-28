@@ -2379,7 +2379,7 @@ class SearchApartmentsComponent extends CBitrixComponent
                             "PROPERTY_PRICE_RUB",
                         )
                     )->Fetch();
-                    
+
                     $arMinSquareObjectApartment = CIBlockElement::GetList(
                         array("PROPERTY_SQUARE" => "ASC"),
                         array(
@@ -2399,7 +2399,7 @@ class SearchApartmentsComponent extends CBitrixComponent
                             "PROPERTY_PRICE_RUB",
                         )
                     )->Fetch();
-                    
+
                     $arMaxSquareObjectApartment = CIBlockElement::GetList(
                         array("PROPERTY_SQUARE" => "DESC"),
                         array(
@@ -2572,15 +2572,15 @@ class SearchApartmentsComponent extends CBitrixComponent
             $allObjects = $arObjects;
 
             //if($page > 1){
-                $arObjects = array(
-                    "ITEMS"     => array_slice($arObjectsListInitial, ($page-1)*10+2, 10),
-                    "SHOW_MORE" => (($page-1)*10 + 10 >= $allObjectsCount) ? false : true
-                );
+            $arObjects = array(
+                "ITEMS"     => array_slice($arObjectsListInitial, ($page-1)*10+2, 10),
+                "SHOW_MORE" => (($page-1)*10 + 10 >= $allObjectsCount) ? false : true
+            );
             //} else {
-                $arObjects = array(
-                    "ITEMS"     => array_slice($arObjectsListInitial, ($page-1)*$this->arParams["OBJECTS_PAGE_COUNT_LIST"], $this->arParams["OBJECTS_PAGE_COUNT_LIST"]),
-                    "SHOW_MORE" => (($page-1)*$this->arParams["OBJECTS_PAGE_COUNT_LIST"] + $this->arParams["OBJECTS_PAGE_COUNT_LIST"] >= $allObjectsCount) ? false : true
-                );
+            $arObjects = array(
+                "ITEMS"     => array_slice($arObjectsListInitial, ($page-1)*$this->arParams["OBJECTS_PAGE_COUNT_LIST"], $this->arParams["OBJECTS_PAGE_COUNT_LIST"]),
+                "SHOW_MORE" => (($page-1)*$this->arParams["OBJECTS_PAGE_COUNT_LIST"] + $this->arParams["OBJECTS_PAGE_COUNT_LIST"] >= $allObjectsCount) ? false : true
+            );
             //}
 
             //Заголовок и текст
