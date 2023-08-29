@@ -1,0 +1,13 @@
+stages:
+- production
+
+production:
+    stage: production
+    tags:
+    - idemtest
+    only:
+      refs:
+        - prod
+    script:
+    - ssh -p2233 -t root@80.78.247.78 "cd /var/www/towergroup.ru; git checkout prod; git pull; chown -R www-data:www-data htdocs/"
+
