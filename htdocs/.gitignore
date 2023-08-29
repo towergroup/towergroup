@@ -17,6 +17,7 @@
 /local/modules/sprint.migration/
 # исключаем загружаемые файлы
 /upload/
+!/upload/
 /oldmodules/
 /3bita/
 
