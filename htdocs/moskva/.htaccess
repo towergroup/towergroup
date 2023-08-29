@@ -1,0 +1,115 @@
+Options -Indexes
+ErrorDocument 404 /404.php
+
+<IfModule mod_php5.c>
+    php_flag allow_call_time_pass_reference 1
+    php_flag session.use_trans_sid off
+
+    #php_value display_errors 1
+
+    #php_value mbstring.internal_encoding UTF-8
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    Options +FollowSymLinks
+    RewriteEngine On
+
+    #add /
+RewriteCond %{REQUEST_URI} ^(.*/[^/\.]+)$
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1/ [R=301,L]
+
+    RewriteCond %{REQUEST_URI} !\?
+    RewriteCond %{REQUEST_URI} !\&
+    RewriteCond %{REQUEST_URI} !\=
+    RewriteCond %{REQUEST_URI} !\.
+    RewriteCond %{REQUEST_URI} !\/$
+    RewriteCond %{HTTP_HOST} ^www\.(.*)$
+    RewriteRule ^(.*)$ https://%1/$1/ [L,R=301]
+
+    RewriteCond %{REQUEST_URI} !\?
+    RewriteCond %{REQUEST_URI} !\&
+    RewriteCond %{REQUEST_URI} !\=
+    RewriteCond %{REQUEST_URI} !\.
+    RewriteCond %{REQUEST_URI} !\/$
+    RewriteCond %{HTTP_HOST} ^([^www].*)$
+    RewriteRule ^(.*)$ https://%1/$1/ [L,R=301]
+
+    #RewriteCond %{REQUEST_URI} /index.php
+    #RewriteRule ^(.*)$ https://towergroup.ru/ [R=301,L]
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-l
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !/bitrix/urlrewrite.php$
+    RewriteRule ^(.*)$ /bitrix/urlrewrite.php [L]
+    RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization}]
+
+    RewriteCond %{THE_REQUEST} /(.*)index.php.*$
+    RewriteCond %{THE_REQUEST} !bitrix/admin/
+    RewriteRule .* /%1 [R=301,L]
+
+
+</IfModule>
+
+<IfModule mod_dir.c>
+    DirectoryIndex index.php index.html
+</IfModule>
+
+<IfModule mod_expires.c>
+    AddType application/vnd.ms-fontobject .eot
+    AddType application/x-font-ttf .ttf
+    AddType application/x-font-opentype .otf
+    AddType application/x-font-woff .woff
+    AddType application/x-font-woff2 .woff2
+    AddType image/svg+xml .svg
+
+    ExpiresActive on
+    ExpiresByType application/x-font-ttf "access plus 365 day"
+    ExpiresByType application/x-font-opentype "access plus 365 day"
+    ExpiresByType application/x-font-woff "access plus 365 day"
+    ExpiresByType application/x-font-woff2 "access plus 365 day"
+    ExpiresByType application/font-sfnt "access plus 365 day"
+    ExpiresByType application/vnd.ms-fontobject "access plus 365 day"
+
+    ExpiresByType image/jpeg "access plus 365 day"
+    ExpiresByType image/gif "access plus 365 day"
+    ExpiresByType image/png "access plus 365 day"
+    ExpiresByType text/css "access plus 365 day"
+    ExpiresByType application/javascript "access plus 365 day"
+
+    # VIDEO
+    ExpiresByType video/ogg                           "access plus 365 day"
+    ExpiresByType video/mp4                           "access plus 365 day"
+    ExpiresByType video/webm                          "access plus 365 day"
+    ExpiresByType video/x-msvideo                     "access plus 365 day"
+    ExpiresByType video/mpeg                          "access plus 365 day"
+    ExpiresByType video/quicktime                     "access plus 365 day"
+    ExpiresByType video/x-la-asf                      "access plus 365 day"
+    ExpiresByType video/x-ms-asf                      "access plus 365 day"
+    ExpiresByType x-world/x-vrml                      "access plus 365 day"
+</IfModule>
+
+<IfModule mod_deflate.c>
+    # Compress HTML, CSS, JavaScript, Text, XML and fonts
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+    AddOutputFilterByType DEFLATE application/x-font
+    AddOutputFilterByType DEFLATE application/x-font-opentype
+    AddOutputFilterByType DEFLATE application/x-font-otf
+    AddOutputFilterByType DEFLATE application/x-font-truetype
+    AddOutputFilterByType DEFLATE application/x-font-ttf
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE font/opentype
+    AddOutputFilterByType DEFLATE font/otf
+    AddOutputFilterByType DEFLATE font/ttf
+    AddOutputFilterByType DEFLATE image/svg+xml
+    AddOutputFilterByType DEFLATE image/x-icon
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/xml
+</IfModule>
