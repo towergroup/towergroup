@@ -96,7 +96,7 @@ class SearchApartmentsComponent extends CBitrixComponent
             [
                 "IBLOCK_ID" => EMPLOYEES_IBLOCK_ID,
                 "ACTIVE" => "Y",
-                "ID" => $managerID ? $managerID : '7',
+                "ID" => $managerID ? $managerID : 7,
             ],
             false,
             false,
@@ -114,6 +114,32 @@ class SearchApartmentsComponent extends CBitrixComponent
                 "PROPERTY_EMAIL",
             ]
         )->Fetch();
+
+        if(empty($rsManager)) {
+            $rsManager = CIBlockElement::GetList(
+                false,
+                [
+                    "IBLOCK_ID" => EMPLOYEES_IBLOCK_ID,
+                    "ACTIVE" => "Y",
+                    "ID" => 7,
+                ],
+                false,
+                false,
+                [
+                    "ID",
+                    "IBLOCK_ID",
+                    "CODE",
+                    "NAME",
+                    "PREVIEW_PICTURE",
+                    "DETAIL_PICTURE",
+                    "PROPERTY_DEPARTMENT",
+                    "PROPERTY_PHONE",
+                    "PROPERTY_WHATSAPP",
+                    "PROPERTY_TELEGRAM",
+                    "PROPERTY_EMAIL",
+                ]
+            )->Fetch();
+        }
 
         if (!empty($rsManager["PREVIEW_PICTURE"])) $rsManager["PREVIEW_PICTURE"] = CFile::GetFileArray($rsManager["PREVIEW_PICTURE"]);
 
@@ -1623,24 +1649,6 @@ class SearchApartmentsComponent extends CBitrixComponent
                         $arObjectsParamsDefault["APARTMENT_TYPES"][$room_enum_fields["ID"]] = $room_enum_fields;
                 }
 
-                //находим Застройщиков
-
-                $hlblBuilder = $cityCode == 'spb' ? BUILDERS_SPB_HIGHLOADBLOCK_ID : BUILDERS_HIGHLOADBLOCK_ID; // Указываем ID highloadblock застройщиков
-                $hlblock = HL\HighloadBlockTable::getById($hlblBuilder)->fetch();
-
-                $entity = HL\HighloadBlockTable::compileEntity($hlblock);
-                $entity_data_class = $entity->getDataClass();
-
-                $rsBuilder = $entity_data_class::getList(array(
-                    "select" => array("*"),
-                    "order" => array("ID" => "ASC"),
-                ));
-
-
-                while($arBuilder = $rsBuilder->Fetch()){
-                    $arObjectsParamsDefault["BUILDERS"][$arBuilder['ID']] = $arBuilder;
-                }
-
                 //находим классы ЖК
 
                 $hlblObjectLiveClass = LIVE_CLASSES_HIGHLOADBLOCK_ID; // Указываем ID highloadblock типов жк
@@ -1730,6 +1738,23 @@ class SearchApartmentsComponent extends CBitrixComponent
                 }
 
                 $cacheObjectsParamsDefault->endDataCache($arObjectsParamsDefault); // записываем в кеш
+            }
+
+            //находим Застройщиков без кеширования
+
+            $hlblBuilder = $cityCode == 'spb' ? BUILDERS_SPB_HIGHLOADBLOCK_ID : BUILDERS_HIGHLOADBLOCK_ID; // Указываем ID highloadblock застройщиков
+            $hlblock = HL\HighloadBlockTable::getById($hlblBuilder)->fetch();
+
+            $entity = HL\HighloadBlockTable::compileEntity($hlblock);
+            $entity_data_class = $entity->getDataClass();
+
+            $rsBuilder = $entity_data_class::getList(array(
+                "select" => array("*"),
+                "order" => array("ID" => "ASC"),
+            ));
+            
+            while($arBuilder = $rsBuilder->Fetch()){
+                $arObjectsParamsDefault["BUILDERS"][$arBuilder['ID']] = $arBuilder;
             }
 
             $arObjectsActiveID = $arObjectsParamsDefault["OBJECTS_ACTIVE_ID"];
