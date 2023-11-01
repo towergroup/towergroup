@@ -13,7 +13,7 @@ $APPLICATION->IncludeComponent(
         "CITY_CODE" => "spb",
         "IBLOCK_ID" => NEW_BUILD_SPB_IBLOCK_ID,
         "AJAX" => true,
-        "OBJECTS_PAGE_COUNT_LIST" => 25,
+        "OBJECTS_PAGE_COUNT_LIST" => 12,
         "OBJECTS_DETAIL_PAGE_COUNT_LIST" => 6,
         "SORT_DEFAULT" => "SORT",
         "SORT_BY_DEFAULT" => "ASC",

@@ -173,7 +173,7 @@ class SearchMainComponent extends CBitrixComponent
             // Поиск дефолтных значений для фильтра новостроек
 
             $cacheObjectsParamsDefault = Cache::createInstance(); // получаем экземпляр класса
-            if ($cacheObjectsParamsDefault->initCache(86400, "cache_data_objects_default_params_new_build".$rsCurCity["CODE"], "/")) { // проверяем кеш и задаём настройки
+            if ($cacheObjectsParamsDefault->initCache(86400, "cache_data_objects_default_params_new_build_main".$rsCurCity["CODE"], "/")) { // проверяем кеш и задаём настройки
                 $arObjectParamsDefaultNewbuild = $cacheObjectsParamsDefault->getVars(); // достаем переменные из кеша
             }
             elseif ($cacheObjectsParamsDefault->startDataCache()) {
@@ -236,14 +236,20 @@ class SearchMainComponent extends CBitrixComponent
                     )
                 );
 
-                while ($arFlatNoParams = $obFlatNoParams->GetNext()) {
-                    if (!in_array($arFlatNoParams["PROPERTY_DECORATION_VALUE"],$arFlatDecorations) && !empty($arFlatNoParams["PROPERTY_DECORATION_VALUE"]))
+                while ($arFlatNoParams = $obFlatNoParams->Fetch()) {
+                    if (!in_array($arFlatNoParams["PROPERTY_DECORATION_VALUE"],
+                            $arFlatDecorations) && !empty($arFlatNoParams["PROPERTY_DECORATION_VALUE"])) {
                         $arFlatDecorations[] = $arFlatNoParams["PROPERTY_DECORATION_VALUE"];
+                    }
 
-                    if (!in_array($arFlatNoParams["PROPERTY_BUILD_TYPE_VALUE"],$arFlatTypes) && !empty($arFlatNoParams["PROPERTY_BUILD_TYPE_VALUE"]))
+                    if (!in_array($arFlatNoParams["PROPERTY_BUILD_TYPE_VALUE"],
+                            $arFlatTypes) && !empty($arFlatNoParams["PROPERTY_BUILD_TYPE_VALUE"])) {
                         $arFlatTypes[] = $arFlatNoParams["PROPERTY_BUILD_TYPE_VALUE"];
-                    if (!in_array($arFlatNoParams["PROPERTY_ROOMS_VALUE"],$arFlatRoomTypes) && !empty($arFlatNoParams["PROPERTY_ROOMS_VALUE"]))
+                    }
+                    if (!in_array($arFlatNoParams["PROPERTY_ROOMS_VALUE"],
+                            $arFlatRoomTypes) && !empty($arFlatNoParams["PROPERTY_ROOMS_VALUE"])) {
                         $arFlatRoomTypes[] = $arFlatNoParams["PROPERTY_ROOMS_VALUE"];
+                    }
                 }
 
                 //находим Отделки
@@ -266,7 +272,7 @@ class SearchMainComponent extends CBitrixComponent
 
                 //находим типы комнат
                 $property_rooms_enums = CIBlockPropertyEnum::GetList(Array("SORT"=>"ASC", "ID"=>"ASC"), Array("IBLOCK_ID"=>$arIblockIDs["novostroyki"], "CODE"=>"ROOMS"));
-                while($room_enum_fields = $property_rooms_enums->GetNext())
+                while($room_enum_fields = $property_rooms_enums->Fetch())
                 {
                     if (in_array($room_enum_fields["VALUE"],$arFlatRoomTypes))
                         $arObjectParamsDefaultNewbuild["APARTMENT_TYPES"][$room_enum_fields["ID"]] = $room_enum_fields;
@@ -724,7 +730,7 @@ class SearchMainComponent extends CBitrixComponent
         // Поиск минимальных значений для фильтра новостроек
 
         $cacheParamsDefault = Cache::createInstance(); // получаем экземпляр класса
-        if ($cacheParamsDefault->initCache(86400, "cache_data_default_filter_new_build".$rsCurCity["CODE"], "/")) { // проверяем кеш и задаём настройки
+        if ($cacheParamsDefault->initCache(86400, "cache_data_default_filter_new_build_main".$rsCurCity["CODE"], "/")) { // проверяем кеш и задаём настройки
             $arFilterParamsDefaultNewbuild = $cacheParamsDefault->getVars(); // достаем переменные из кеша
         }
         elseif ($cacheParamsDefault->startDataCache()) {
@@ -976,7 +982,7 @@ class SearchMainComponent extends CBitrixComponent
 
         // Поиск минимальных значений для фильтра вторички
         $cacheParamsDefault = Cache::createInstance(); // получаем экземпляр класса
-        if ($cacheParamsDefault->initCache(86400, "cache_data_default_filter_resale".$rsCurCity["CODE"], "/")) { // проверяем кеш и задаём настройки
+        if ($cacheParamsDefault->initCache(86400, "cache_data_default_filter_resale_main".$rsCurCity["CODE"], "/")) { // проверяем кеш и задаём настройки
             $arFilterParamsDefaultResale = $cacheParamsDefault->getVars(); // достаем переменные из кеша
         }
         elseif ($cacheParamsDefault->startDataCache()) {
@@ -1219,7 +1225,7 @@ class SearchMainComponent extends CBitrixComponent
         // Поиск минимальных значений для фильтра загородной
 
         $cacheParamsDefault = Cache::createInstance(); // получаем экземпляр класса
-        if ($cacheParamsDefault->initCache(86400, "cache_data_default_filter_country".$rsCurCity["CODE"], "/")) { // проверяем кеш и задаём настройки
+        if ($cacheParamsDefault->initCache(86400, "cache_data_default_filter_country_main".$rsCurCity["CODE"], "/")) { // проверяем кеш и задаём настройки
             $arFilterParamsDefaultCountry = $cacheParamsDefault->getVars(); // достаем переменные из кеша
         }
         elseif ($cacheParamsDefault->startDataCache()) {
@@ -1461,7 +1467,7 @@ class SearchMainComponent extends CBitrixComponent
         // Поиск минимальных значений для фильтра зарубежной
 
         $cacheParamsDefault = Cache::createInstance(); // получаем экземпляр класса
-        if ($cacheParamsDefault->initCache(86400, "cache_data_default_filter_foreign".$rsCurCity["CODE"], "/")) { // проверяем кеш и задаём настройки
+        if ($cacheParamsDefault->initCache(86400, "cache_data_default_filter_foreign_main".$rsCurCity["CODE"], "/")) { // проверяем кеш и задаём настройки
             $arFilterParamsDefaultForeign = $cacheParamsDefault->getVars(); // достаем переменные из кеша
         }
         elseif ($cacheParamsDefault->startDataCache()) {
