@@ -546,7 +546,6 @@ html:not(.-device-mobile) .news-link:hover .text-control.text-control--long-arro
 }
 
 .dropdown-values-scroll {
-  overflow: hidden;
   position: relative;
   max-height: 24rem;
   overflow-y: auto;
@@ -703,7 +702,6 @@ html:not(.-device-mobile) .news-link:hover .text-control.text-control--long-arro
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  position: relative;
   padding: 0 5.6rem;
   position: absolute;
   top: 0;

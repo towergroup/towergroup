@@ -603,7 +603,7 @@ html.-device-mobile .object-new-info-hide div {
   -webkit-box-align: start;
   -ms-flex-align: start;
   align-items: flex-start;
-  /*background-color: #fff;*/
+  background-color: #fff;
 }
 
 .object-other-info>* {
@@ -1476,12 +1476,12 @@ html.-device-mobile .object-other .list--object-icons .list-item+.list-item {
   left: 50%;
   -webkit-transform: translate(-50%,-50%) scale(1);
   transform: translate(-50%,-50%) scale(1);
-  -webkit-backface-visibility: hidden;
   -webkit-transition: -webkit-transform .25s;
   transition: -webkit-transform .25s;
   transition: transform .25s;
   transition: transform .25s, -webkit-transform .25s;
   transition: transform .25s,-webkit-transform .25s;
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   will-change: transform;
 }
@@ -1821,7 +1821,6 @@ html.-device-mobile .object-other .list--object-icons .list-item+.list-item {
 }
 
 .dropdown-values-scroll {
-  overflow: hidden;
   position: relative;
   max-height: 24rem;
   overflow-y: auto;
@@ -1978,7 +1977,6 @@ html.-device-mobile .object-other .list--object-icons .list-item+.list-item {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  position: relative;
   padding: 0 5.6rem;
   position: absolute;
   top: 0;

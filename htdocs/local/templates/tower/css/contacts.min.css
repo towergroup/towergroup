@@ -85,7 +85,7 @@
 
 .contacts h1 {
   margin-bottom: 4rem;
-  font-family: Playfair Display;
+  font-family: Playfair Display,sans-serif;
   text-transform: none;
   font-size: 5rem;
   color: #022924;
@@ -100,13 +100,13 @@
   margin-bottom: 1rem;
   font-size: 1.8rem;
   color: #737373;
-  font-family: Playfair Display;
+  font-family: Playfair Display,sans-serif;
 }
 
 .contacts .list--contacts .list-item-value {
   font-size: 1.8rem;
   line-height: 2.2rem;
-  font-family: ArgentCF;
+  font-family: ArgentCF,sans-serif;
   color: #022924;
   color: var(--color-accent-dark);
 }
@@ -145,7 +145,7 @@
   background-color: #ccc;
   color: #022924;
   color: var(--color-accent-dark);
-  font-family: Playfair Display;
+  font-family: Playfair Display,sans-serif;
   font-size: 1.8rem;
 }
 

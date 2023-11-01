@@ -197,7 +197,7 @@ h6 a {
 h1 {
   font-size: 3.2rem;
   font-size: var(--header-text-font-size-1);
-  font-family: Code Pro;
+  font-family: Code Pro,sans-serif;
   font-weight: 400;
 }
 
@@ -957,7 +957,6 @@ img.lazy.loaded {
 .button.button--inline {
   padding: 0;
   border: none;
-  height: auto;
   height: 2.4rem;
   line-height: 2.4rem;
 }
@@ -1770,14 +1769,12 @@ html:not(.-device-mobile) .button.button--map:active:before {
 .field-search-clear {
   padding: 0;
   border: none;
-  display: block;
   position: absolute;
   width: 1.6rem;
   height: 1.6rem;
   top: 50%;
   margin-top: -.8rem;
   right: 1.7rem;
-  opacity: .6;
   background: none;
   -webkit-transition: opacity .25s;
   transition: opacity .25s;
@@ -2399,7 +2396,6 @@ textarea.field-input {
 
 .header-controls a {
   vertical-align: top;
-  display: inline-block;
   width: 2.4rem;
   height: 2.4rem;
   border-radius: 50%;

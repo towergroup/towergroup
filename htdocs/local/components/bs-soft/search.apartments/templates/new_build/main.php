@@ -697,7 +697,6 @@ $GLOBALS['default_broker'] = array(
                                             "от ".$arObject["MIN_SQUARE_APARTMENT"].' м²',
                                         ];
                                         $itemMap['price'] = "от ".number_format($arObject["MIN_PRICE_APARTMENT"], 0, ',', ' ')." ₽";
-                                        
                                         ?>
                                         mapItems.push(<?=json_encode($itemMap, JSON_UNESCAPED_UNICODE | JSON_NUMERIC_CHECK);?>);
                                     </script>

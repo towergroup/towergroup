@@ -1000,7 +1000,7 @@ class SearchApartmentsComponent extends CBitrixComponent
                             "DETAIL_TEXT",
                         ]
                     );
-                    while ($arDecoratonSlider = $rsDecoratonSlider->GetNext()) {
+                    while ($arDecoratonSlider = $rsDecoratonSlider->Fetch()) {
                         $arDecoratonSlider["IMAGE_SLIDE"] = CFile::GetFileArray($arDecoratonSlider["PREVIEW_PICTURE"]);
                         $arSlides[] = $arDecoratonSlider;
                     }
@@ -1145,7 +1145,7 @@ class SearchApartmentsComponent extends CBitrixComponent
                         false
                     );
 
-                    while ($arBuilderObject = $rsBuilderObjects->GetNext()) {
+                    while ($arBuilderObject = $rsBuilderObjects->Fetch()) {
                         if (!empty($arBuilderObject["PICTURE"])) $arBuilderObject["PICTURE"] = CFile::GetFileArray($arBuilderObject["PICTURE"]);
                         if ($arBuilderObject["PICTURE"]["WIDTH"] > 640)
                             $arBuilderObject["PICTURE_RESIZE"] = CFile::ResizeImageGet($arBuilderObject["PICTURE"]["ID"], array('width' => 640, 'height' => 480),
@@ -1174,7 +1174,7 @@ class SearchApartmentsComponent extends CBitrixComponent
                         false
                     );
 
-                    while ($arAreaBuilderObject = $rsAreaBuilderObject->GetNext()) {
+                    while ($arAreaBuilderObject = $rsAreaBuilderObject->Fetch()) {
                         $rsDataObjectLiveClass["AREAS"][$arAreaBuilderObject["ID"]] = $arAreaBuilderObject;
                     }
 
@@ -1243,7 +1243,7 @@ class SearchApartmentsComponent extends CBitrixComponent
                                 "PROPERTY_COORDS",
                             ]
                         );
-                        while ($arMapObject = $rsMaprObjects->GetNext()){
+                        while ($arMapObject = $rsMaprObjects->Fetch()){
                             $resInfrastructure["CATEGORY"][$arSect['CODE']]['ITEMS'][] = ['COORDS' => $arMapObject['PROPERTY_COORDS_VALUE'], 'CODE' => $arSect['CODE']];
                         }
                     }
@@ -1294,7 +1294,7 @@ class SearchApartmentsComponent extends CBitrixComponent
                         "PREVIEW_PICTURE"
                     )
                 );
-                while ($arNews = $rsNews->GetNext()) {
+                while ($arNews = $rsNews->Fetch()) {
                     $arNews["DETAIL_PAGE_URL"] = $siteUrl . $arNews["DETAIL_PAGE_URL"];
                     $arNews["PREVIEW_PICTURE"] = CFile::GetFileArray($arNews["PREVIEW_PICTURE"]);
                     $arNews["DETAIL_PICTURE"] = CFile::GetFileArray($arNews["DETAIL_PICTURE"]);
@@ -1421,7 +1421,7 @@ class SearchApartmentsComponent extends CBitrixComponent
                     )
                 );
 
-                while ($arFlat = $obFlat->GetNext()) {
+                while ($arFlat = $obFlat->Fetch()) {
                     if (!empty($arFlat["PREVIEW_PICTURE"])) $arFlat["PREVIEW_PICTURE"] = CFile::GetFileArray($arFlat["PREVIEW_PICTURE"]);
                     if (!empty($arFlat["DETAIL_PICTURE"])) $arFlat["DETAIL_PICTURE"] = CFile::GetFileArray($arFlat["DETAIL_PICTURE"]);
                     if (!empty($arFlat["PROPERTY_DECORATION_VALUE"])) $arFlat["PROPERTY_DECORATION_VALUE"] = $arFinishes[$arFlat["PROPERTY_DECORATION_VALUE"]]["UF_NAME"];
@@ -1468,7 +1468,7 @@ class SearchApartmentsComponent extends CBitrixComponent
                         "PROPERTY_PHONE_COUNTRY",
                         "PROPERTY_PHONE_OVERSEAS",
                     )
-                )->getNext();
+                )->Fetch();
 
 
                 $arOutput = array(
@@ -1613,7 +1613,7 @@ class SearchApartmentsComponent extends CBitrixComponent
                     )
                 );
 
-                while ($arFlatNoParams = $obFlatNoParams->GetNext()) {
+                while ($arFlatNoParams = $obFlatNoParams->Fetch()) {
                     if (!in_array($arFlatNoParams["PROPERTY_DECORATION_VALUE"],$arFlatDecorations) && !empty($arFlatNoParams["PROPERTY_DECORATION_VALUE"]))
                         $arFlatDecorations[] = $arFlatNoParams["PROPERTY_DECORATION_VALUE"];
 
@@ -1752,7 +1752,7 @@ class SearchApartmentsComponent extends CBitrixComponent
                 "select" => array("*"),
                 "order" => array("ID" => "ASC"),
             ));
-            
+
             while($arBuilder = $rsBuilder->Fetch()){
                 $arObjectsParamsDefault["BUILDERS"][$arBuilder['ID']] = $arBuilder;
             }
@@ -2347,7 +2347,7 @@ class SearchApartmentsComponent extends CBitrixComponent
             );
 
             $arObjects = array();
-            while ($objects = $rsObjects->GetNext()) {
+            while ($objects = $rsObjects->Fetch()) {
                 if ($objects['ELEMENT_CNT']  ==  0)
                     continue;
 
@@ -2482,7 +2482,7 @@ class SearchApartmentsComponent extends CBitrixComponent
                     $isSimilarArea = true;
 
                 $arSimilarObjects = array();
-                while ($similarObjects = $rsSimilarObjects->GetNext()) {
+                while ($similarObjects = $rsSimilarObjects->Fetch()) {
                     if ($similarObjects['ELEMENT_CNT']  ==  0)
                         continue;
                     $cacheSectionsRes = Cache::createInstance(); // получаем экземпляр класса
@@ -2631,7 +2631,7 @@ class SearchApartmentsComponent extends CBitrixComponent
                     "PROPERTY_PHONE_COUNTRY",
                     "PROPERTY_PHONE_OVERSEAS",
                 )
-            )->getNext();
+            )->Fetch();
 
             $arOutput = array(
                 "SORT" => $arSortObjects,
