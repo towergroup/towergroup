@@ -822,12 +822,14 @@ switch ($APPLICATION->GetPageProperty("page")) {
 ?>
 <script defer src="<?= SITE_TEMPLATE_PATH . '/js/app.min.js' ?>"></script>
 <script defer src="<?= SITE_TEMPLATE_PATH . '/js/common.min.js' ?>"></script>
+<?/*
 <?= ($APPLICATION->GetPageProperty("page") === "catalog_new_build" || $APPLICATION->GetPageProperty("page") === "catalog_resale" || $APPLICATION->GetPageProperty("page") === "catalog_country" || $APPLICATION->GetPageProperty("page") === "catalog_overseas")
     ?
     '<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>'
     :
     null;
 ?>
+*/?>
 <? if (!empty($jsPage)): ?>
     <? $jsFile = SITE_TEMPLATE_PATH . '/js/' . $jsPage; ?>
     <script defer src="<?= $jsFile; ?>?v=2132"></script>

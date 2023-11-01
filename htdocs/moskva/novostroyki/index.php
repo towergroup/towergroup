@@ -14,7 +14,7 @@ $APPLICATION->IncludeComponent(
         "CITY_CODE" => "moskva",
         "IBLOCK_ID" => NEW_BUILD_IBLOCK_ID,
         "AJAX" => true,
-        "OBJECTS_PAGE_COUNT_LIST" => 25,
+        "OBJECTS_PAGE_COUNT_LIST" => 12,
         "OBJECTS_DETAIL_PAGE_COUNT_LIST" => 6,
         "SORT_DEFAULT" => "SORT",
         "SORT_BY_DEFAULT" => "ASC",
