@@ -47,6 +47,8 @@
   --content-text-bottom-offset: 1rem;
   --content-text-bottom-offset-header: 3rem;
   --content-text-list-offset: calc(var(--content-text-bottom-offset)/3);
+  --radius-block: 2.4rem;
+  --radius-element: .8rem;
 }
 
 @font-face {
@@ -172,7 +174,6 @@ h6 {
   color: var(--header-text-color);
   line-height: 1.4;
   line-height: var(--header-text-line-height);
-  -webkit-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
 }
@@ -825,7 +826,6 @@ img.lazy.loaded {
   height: 5rem;
   line-height: 2rem;
   border: .1rem solid transparent;
-  border-radius: 0;
   background: transparent;
   color: inherit;
   font-size: 1.5rem;
@@ -837,6 +837,8 @@ img.lazy.loaded {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  border-radius: .8rem;
+  border-radius: var(--radius-element);
 }
 
 .button svg {
@@ -914,6 +916,10 @@ img.lazy.loaded {
   height: 1.2rem;
   margin-right: .8rem;
   background: url(../img/filter.svg) no-repeat 50% 50%/100% 100%;
+}
+
+.button.button--map {
+  overflow: hidden;
 }
 
 .button.button--map:not(:disabled) {
@@ -1097,6 +1103,7 @@ html:not(.-device-mobile) .button.button--map:active:before {
   left: 0;
   width: 2rem;
   height: 2rem;
+  border-radius: .4rem;
 }
 
 .checkbox span:before {
@@ -1189,6 +1196,16 @@ html:not(.-device-mobile) .button.button--map:active:before {
 
 .common-content img {
   display: block;
+  border-radius: 2.4rem;
+  border-radius: var(--radius-block);
+}
+
+.common-content img[align=left] {
+  margin: 0 2rem 2rem 0;
+}
+
+.common-content img[align=right] {
+  margin: 0 0 2rem 2rem;
 }
 
 .common-content img+* {
@@ -1265,6 +1282,8 @@ html:not(.-device-mobile) .button.button--map:active:before {
   -webkit-box-shadow: 0 .4rem 3.6rem -.4rem rgba(0,0,0,.16);
   box-shadow: 0 .4rem 3.6rem -.4rem rgba(0,0,0,.16);
   padding: 1.9rem;
+  border-radius: .8rem;
+  border-radius: var(--radius-element);
 }
 
 .location-load-controls {
@@ -1423,6 +1442,8 @@ html:not(.-device-mobile) .button.button--map:active:before {
   display: none;
   opacity: 0;
   text-align: center;
+  border-radius: 2.4rem;
+  border-radius: var(--radius-block);
 }
 
 .contact-us-close {
@@ -1816,7 +1837,8 @@ html:not(.-device-mobile) .button.button--map:active:before {
   color: var(--base-text-color);
   -webkit-transition: border-color .25s;
   transition: border-color .25s;
-  border-radius: 0;
+  border-radius: .8rem;
+  border-radius: var(--radius-element);
 }
 
 .field-input::-webkit-input-placeholder {
@@ -2736,6 +2758,8 @@ textarea.field-input {
   background-color: #fff;
   -webkit-box-shadow: 0 .4rem 3.6rem -.4rem rgba(0,0,0,.2);
   box-shadow: 0 .4rem 3.6rem -.4rem rgba(0,0,0,.2);
+  border-radius: .8rem;
+  border-radius: var(--radius-element);
 }
 
 .header-contacts-location-dropdown>div {
@@ -2839,6 +2863,8 @@ html:not(.-device-mobile) .header-contacts-location:hover .header-contacts-locat
   transition: .25s ease;
   -webkit-box-shadow: 0 .4rem 4rem rgba(0,0,0,.2);
   box-shadow: 0 .4rem 4rem rgba(0,0,0,.2);
+  border-radius: 2.4rem;
+  border-radius: var(--radius-block);
 }
 
 .modal-container h3 {
@@ -3050,6 +3076,7 @@ html:not(.-device-mobile) .header-contacts-location:hover .header-contacts-locat
   background-position: 50% 0;
   background-size: cover;
   background-repeat: no-repeat;
+  border-radius: 0 2.2rem 2.2rem 0;
 }
 
 .modal-broker-info {
@@ -3063,6 +3090,8 @@ html:not(.-device-mobile) .header-contacts-location:hover .header-contacts-locat
   background: rgba(var(--color-gray-dark-rgb),.6);
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
+  border-radius: 0 0 2.2rem 0;
+  overflow: hidden;
 }
 
 .modal-broker-info-name {
@@ -3205,6 +3234,8 @@ html:not(.-device-mobile) .header-contacts-location:hover .header-contacts-locat
   color: var(--color-accent-dark);
   text-align: center;
   cursor: pointer;
+  border-radius: .8rem;
+  border-radius: var(--radius-element);
   -webkit-transition: color .25s,background-color .25s;
   transition: color .25s,background-color .25s;
 }
@@ -3946,6 +3977,11 @@ html:not(.-device-mobile) .header-contacts-location:hover .header-contacts-locat
     -webkit-box-flex: 0;
     -ms-flex: none;
     flex: none;
+    border-radius: 2.2rem 2.2rem 0 0;
+  }
+
+  .modal-broker-info {
+    border-radius: 0;
   }
 
   .modal-broker-form {
