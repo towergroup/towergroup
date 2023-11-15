@@ -41,6 +41,8 @@
   --content-text-bottom-offset: 1rem;
   --content-text-bottom-offset-header: 3rem;
   --content-text-list-offset: calc(var(--content-text-bottom-offset)/3);
+  --radius-block: 2.4rem;
+  --radius-element: .8rem;
 }
 
 .pdf {

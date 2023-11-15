@@ -2,14 +2,7 @@
 $aMenuLinks = Array(
 	Array(
 		"Дубай", 
-		"/moskva/nedvizhimost-za-rubezhom/?search=[]&city=Дубай", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Лондон", 
-		"/moskva/nedvizhimost-za-rubezhom/?search=[]&city=Лондон", 
+		"https://towergroup.ae/ru/", 
 		Array(), 
 		Array(), 
 		"" 

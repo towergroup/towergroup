@@ -41,6 +41,8 @@
   --content-text-bottom-offset: 1rem;
   --content-text-bottom-offset-header: 3rem;
   --content-text-list-offset: calc(var(--content-text-bottom-offset)/3);
+  --radius-block: 2.4rem;
+  --radius-element: .8rem;
 }
 
 .list--crumbs {
@@ -300,6 +302,8 @@
   border: .1rem solid #e1e5e5;
   border: .1rem solid var(--color-border);
   position: relative;
+  border-radius: 2.4rem;
+  border-radius: var(--radius-block);
 }
 
 .news-link>* {

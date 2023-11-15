@@ -41,6 +41,8 @@
   --content-text-bottom-offset: 1rem;
   --content-text-bottom-offset-header: 3rem;
   --content-text-list-offset: calc(var(--content-text-bottom-offset)/3);
+  --radius-block: 2.4rem;
+  --radius-element: .8rem;
 }
 
 .list--crumbs {
@@ -300,6 +302,8 @@
   border: .1rem solid #e1e5e5;
   border: .1rem solid var(--color-border);
   position: relative;
+  border-radius: 2.4rem;
+  border-radius: var(--radius-block);
 }
 
 .news-link>* {
@@ -417,6 +421,9 @@ html:not(.-device-mobile) .news-link:hover .text-control.text-control--long-arro
   align-items: center;
   color: #fff;
   position: relative;
+  border-radius: 2.4rem;
+  border-radius: var(--radius-block);
+  overflow: hidden;
 }
 
 .press-hero>* {
@@ -715,6 +722,7 @@ html:not(.-device-mobile) .news-link:hover .text-control.text-control--long-arro
     margin-right: -4rem;
     margin-right: calc(var(--gap)*-1);
     padding: 2.4rem 2.4rem 10.4rem;
+    border-radius: 0;
   }
 
   .press-hero-heading .button {

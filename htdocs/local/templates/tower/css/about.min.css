@@ -41,6 +41,8 @@
   --content-text-bottom-offset: 1rem;
   --content-text-bottom-offset-header: 3rem;
   --content-text-list-offset: calc(var(--content-text-bottom-offset)/3);
+  --radius-block: 2.4rem;
+  --radius-element: .8rem;
 }
 
 .list--crumbs {
@@ -409,6 +411,8 @@
   display: none;
   opacity: 0;
   z-index: 9;
+  border-radius: .8rem;
+  border-radius: var(--radius-element);
 }
 
 .dropdown-values .list {
@@ -489,6 +493,16 @@
 
 .dropdown-values-range-select>* {
   min-width: 0;
+}
+
+.dropdown-values-range-select-item:first-child .field-input {
+  border-radius: .8rem 0 0 .8rem;
+  border-radius: var(--radius-element) 0 0 var(--radius-element);
+}
+
+.dropdown-values-range-select-item:last-child .field-input {
+  border-radius: 0 .8rem .8rem 0;
+  border-radius: 0 var(--radius-element) var(--radius-element) 0;
 }
 
 .dropdown-values-range-select-label {
@@ -720,6 +734,7 @@
   background-color: #fff;
   -webkit-transition: border-color .25s,background-color .25s;
   transition: border-color .25s,background-color .25s;
+  border-radius: .4rem;
 }
 
 .dropdown.dropdown--checkbox .list-item-checkbox svg {
@@ -944,6 +959,8 @@
   opacity: 0;
   -webkit-transition: opacity .25s,padding-left .25s;
   transition: opacity .25s,padding-left .25s;
+  border-radius: .8rem;
+  border-radius: var(--radius-element);
 }
 
 .about-hero-video:hover {
@@ -1071,6 +1088,9 @@ html.-device-mobile .about-hero-video span {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  border-radius: 2.4rem;
+  border-radius: var(--radius-block);
+  overflow: hidden;
 }
 
 .person-item-info {
