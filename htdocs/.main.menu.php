@@ -97,27 +97,6 @@ $aMenuLinks = Array(
 		Array(), 
 		Array("IS_PARENT"=>"0", "DEPTH_LEVEL"=>"2", "CITY_CODE"=>"spb"), 
 		"" 
-	),
-	Array(
-		"Зарубежная:", 
-		"", 
-		Array(), 
-		Array("IS_PARENT"=>"1", "DEPTH_LEVEL"=>"1", "CITY_CODE"=>"spb"), 
-		"" 
-	),
-	Array(
-		"Дубай", 
-		"", 
-		Array(), 
-		Array("IS_PARENT"=>"0", "DEPTH_LEVEL"=>"2", "CITY_CODE"=>"spb"), 
-		"" 
-	),
-	Array(
-		"Лондон", 
-		"", 
-		Array(), 
-		Array("IS_PARENT"=>"0", "DEPTH_LEVEL"=>"2", "CITY_CODE"=>"spb"), 
-		"" 
 	)
 );
 ?>
