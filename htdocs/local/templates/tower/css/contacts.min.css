@@ -43,6 +43,8 @@
   --content-text-bottom-offset: 1rem;
   --content-text-bottom-offset-header: 3rem;
   --content-text-list-offset: calc(var(--content-text-bottom-offset)/3);
+  --radius-block: 2.4rem;
+  --radius-element: .8rem;
 }
 
 @font-face {
@@ -77,6 +79,9 @@
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
+  border-radius: 2.4rem;
+  border-radius: var(--radius-block);
+  overflow: hidden;
 }
 
 .contacts #map {
@@ -181,6 +186,7 @@
 
   .contacts-map {
     height: 44rem;
+    border-radius: 0;
     margin: 0 -4rem -8rem;
     margin: 0 calc(var(--gap)*-1) -8rem;
   }
