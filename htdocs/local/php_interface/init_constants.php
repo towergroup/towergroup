@@ -62,4 +62,4 @@ if (!defined("COMPANY_PHONE")) define(("COMPANY_PHONE"), '+7 (812) 467-45-05');
 if (!defined("PHONE_REPLACE_CLASS")) define(("PHONE_REPLACE_CLASS"), 'replace-phone');
 
 //Default telegram link
-if (!defined("TELEGRAM")) define(("TELEGRAM"), 'https://t.me/towergroupagency');
+if (!defined("TELEGRAM")) define(("TELEGRAM"), 'https://t.me/+xO9Xdr-5QOU5Y2Ri');
