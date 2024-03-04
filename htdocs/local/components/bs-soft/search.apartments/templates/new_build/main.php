@@ -472,26 +472,26 @@ $GLOBALS['default_broker'] = array(
                         false
                     );?>
                 </h1>
-				<meta itemprop="description" content="<?
-                    $APPLICATION->IncludeComponent(
-                        "profistudio:seo.page",
-                        "h1",
-                        array(
-                            "COMPONENT_TEMPLATE" => "h1",
-                            "FIELDS" => array(
-                                0 => "DETAIL_TEXT",
-                            ),
-                            "CACHE_TYPE" => "A",
-                            "CACHE_TIME" => "36000000"
+                <meta itemprop="description" content="<?
+                $APPLICATION->IncludeComponent(
+                    "profistudio:seo.page",
+                    "h1",
+                    array(
+                        "COMPONENT_TEMPLATE" => "h1",
+                        "FIELDS" => array(
+                            0 => "DETAIL_TEXT",
                         ),
-                        false
-                    );?>" />
+                        "CACHE_TYPE" => "A",
+                        "CACHE_TIME" => "36000000"
+                    ),
+                    false
+                );?>" />
             <?else:?>
                 <h1 itemprop="name">
                     Новостройки
                     <span class="desktop-title-city"><?if(SITE_ID == "s2"):?> Санкт-Петербурга<?else:?> Москвы<?endif;?></span>
                 </h1>
-				<meta itemprop="description" content="Новостройки <?if(SITE_ID == "s2"):?> Санкт-Петербурга<?else:?> Москвы<?endif;?>"/>
+                <meta itemprop="description" content="Новостройки <?if(SITE_ID == "s2"):?> Санкт-Петербурга<?else:?> Москвы<?endif;?>"/>
             <?endif; ?>
         </div>
     </section>
@@ -656,8 +656,13 @@ $GLOBALS['default_broker'] = array(
                                                     </ul>
                                                 </div>
                                                 <div class="object-other-controls">
+                                                    <?/*
                                                     <object>
                                                         <a class="object-other-controls-item" href="tel:<?= str_replace(array("(",")","-"," "),"",$arResult["DEFAULT_BROKER"]['PROPERTY_PHONE_VALUE']) ?>" data-phone-hide="<?= $arResult["DEFAULT_BROKER"]['PROPERTY_PHONE_VALUE'] ?>"><?= substr_replace($arResult["DEFAULT_BROKER"]['PROPERTY_PHONE_VALUE'], "XX XX", -5) ?></a>
+                                                    </object>
+                                                    */?>
+                                                    <object>
+                                                        <a class="object-other-controls-item" target="_blank" href="<?= $arObject['SECTION_PAGE_URL']; ?>">Узнать подробнее</a>
                                                     </object>
                                                     <object>
                                                         <a class="object-other-controls-item" href="#backcall" data-broker-object-info='<?= json_encode($arObjectInfo,
