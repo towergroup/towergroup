@@ -21,16 +21,23 @@ $aMenuLinks = Array(
 		Array(), 
 		"" 
 	),
-    Array(
-        "Пресса",
-        "/moskva/pressa/",
-        Array(),
-        Array(),
-        ""
-    ),
+	Array(
+		"Пресса", 
+		"/moskva/pressa/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
 	Array(
 		"Вакансии", 
 		"/moskva/about/vacancy/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Карта сайта", 
+		"https://towergroup.ru/karta-sayta/", 
 		Array(), 
 		Array(), 
 		"" 

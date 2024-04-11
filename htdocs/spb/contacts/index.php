@@ -1,6 +1,6 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-//$APPLICATION->SetTitle("Контакты");
+//$APPLICATION->SetTitle("Контакты в Санкт-Петербурге");
 $APPLICATION->SetPageProperty("title", "Tower Group - Контакты");
 $APPLICATION->SetPageProperty("description", "Контактная информация: адреса офисов, телефоны, режим работы.");
 $APPLICATION->SetPageProperty("header", 'class="header-white"');

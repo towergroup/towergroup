@@ -2,7 +2,14 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Отзывы Tower Group");
 $APPLICATION->SetPageProperty("title", "Отзывы Tower Group");
-$APPLICATION->SetPageProperty("description", "➜ Отзывы Tower Group");
+$currentDescription = $APPLICATION->GetProperty("description");
+$APPLICATION->SetPageProperty("description", "Агентство недвижимости бизнес и премиум класса Tower Group. Отзывы наших клиентов. Услуги по подбору недвижимости и сопровождению сделок в Санкт-Петербурге и Москве.766776");
+
+// Добавляем к текущему описанию необходимое слово или фразу
+$updatedDescription = $currentDescription ."esfd";
+
+// Устанавливаем измененное описание обратно в мета-тег description
+$APPLICATION->SetPageProperty("description", $updatedDescription);
 $APPLICATION->AddChainItem("О нас", "/moskva/about/");
 $APPLICATION->AddChainItem("Отзывы", "");
 ?>

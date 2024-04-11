@@ -1,6 +1,9 @@
 .success-form-presentation {
 	display: none;
 }
+#body > div.wrapper > main > div:nth-child(2) > section.section-heading.-animation-start > div.container > h1{
+    margin-bottom: 24px!important;
+}
 .modal-object-image img {
 	display: block;
 	margin: 0 auto;

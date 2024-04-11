@@ -44,19 +44,19 @@ $GLOBALS['default_broker'] = array(
         }
     }
 </script>
-<section class="section-heading" data-scroll-fx="data-scroll-fx">
+<!--<section class="section-heading" data-scroll-fx="data-scroll-fx">
     <div class="container">
-        <?$APPLICATION->IncludeComponent("bitrix:breadcrumb","page_mobile",Array(
+        <?/*$APPLICATION->IncludeComponent("bitrix:breadcrumb","page_mobile",Array(
                 "START_FROM" => (SITE_ID == "s2") ? 1 : 0,
-                "PATH" => ""
+                "PATH" => "",
             )
-        );?>
-        <?
+        );*/?>
+        <?/*
         global $profi_seo_page_id;
         if(!empty($profi_seo_page_id)):
-            ?>
+            */?>
             <h1 class="h1">
-                <?
+                <?/*
                 $APPLICATION->IncludeComponent(
                     "profistudio:seo.page",
                     "h1",
@@ -69,16 +69,13 @@ $GLOBALS['default_broker'] = array(
                         "CACHE_TIME" => "36000000"
                     ),
                     false
-                );?>
+                );*/?>
             </h1>
-        <?else:?>
-            <div class="div-title div-title-h1">
-                Новостройки
-                <span class="mobile-title-city"><?if(SITE_ID == "s2"):?> СПБ<?else:?> МСК<?endif;?></span>
-            </div>
-        <?endif; ?>
+        <?/*else:*/?>
+            <h2 class="h1">Зарубежная недвижимость</h2>
+        <?/*endif; */?>
     </div>
-</section>
+</section>-->
 <section class="section-filters" data-scroll-fx="data-scroll-fx">
     <div class="catalog-filter-mobile"><button class="catalog-filter-mobile-control" data-catalog-filter-open="data-catalog-filter-open">
             <div></div><span>Фильтры</span>
@@ -485,7 +482,7 @@ $GLOBALS['default_broker'] = array(
                         "CACHE_TIME" => "36000000"
                     ),
                     false
-                );?>" />
+                );?>
             <?else:?>
                 <h1 itemprop="name">
                     Новостройки
