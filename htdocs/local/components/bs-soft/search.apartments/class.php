@@ -168,7 +168,7 @@ class SearchApartmentsComponent extends CBitrixComponent
         echo '<!-- OBJECT'.$objectCode.'-->';
         if(!empty($objectCode)){
             $arObject = CIBlockSection::GetList(
-                array(),
+                [],
                 array(
                     "IBLOCK_ID" => $iblockID,
                     //"ACTIVE" => "N",
@@ -1254,7 +1254,7 @@ class SearchApartmentsComponent extends CBitrixComponent
                         $siteUrl = '/moskva';
                         break;
                     case s2:
-                        $siteUrl = '';
+                        $siteUrl = '/spb';
                         break;
                     default:
                         $siteUrl = 'https://towergroup.ru';
@@ -1519,7 +1519,8 @@ class SearchApartmentsComponent extends CBitrixComponent
             $type = $_GET['type'];
             $page = ($_GET['page']) ? $_GET['page'] : 1;
             $showMore = ($_GET['showMore']) ? $_GET['showMore'] : false;
-            $arFilterObjects = array('IBLOCK_ID' => $iblockID, 'ACTIVE' => 'Y', 'CNT_ACTIVE' => 'Y');
+            //$arFilterObjects = array('IBLOCK_ID' => $iblockID, 'ACTIVE' => 'Y', 'CNT_ACTIVE' => 'Y');
+            $arFilterObjects = array('IBLOCK_ID' => $iblockID, 'ACTIVE' => 'Y');
             $arFilterSimilarObjects = array('IBLOCK_ID' => $iblockID, 'ACTIVE' => 'Y', 'CNT_ACTIVE' => 'Y');
             $arFilterApartmentsNoParams = array('IBLOCK_ID' => $iblockID, 'ACTIVE' => 'Y');
             $arFilterRanges = array();
@@ -1912,6 +1913,8 @@ class SearchApartmentsComponent extends CBitrixComponent
                 $isApartmentRequest == false ? $isApartmentRequest = true : null;
                 $arFilterSimilarApartments['>=PRICE_RUB'] = floatval($priceMin)*1000000;
                 $arFilterApartments['>=PRICE_RUB'] = floatval($priceMin)*1000000;
+
+                $arFilterApartmentsElements['>=PROPERTY_PRICE_RUB'] = floatval($priceMin)*1000000;
                 //$paramsValues .= $paramsValues
                 $arFilterValues['PRICE'][0] = $priceMin;
 
@@ -1920,6 +1923,8 @@ class SearchApartmentsComponent extends CBitrixComponent
                 $isApartmentRequest == false ? $isApartmentRequest = true : null;
                 $arFilterSimilarApartments['<=PRICE_RUB'] = floatval($priceMax)*1000000;
                 $arFilterApartments['<=PRICE_RUB'] = floatval($priceMax)*1000000;
+
+                $arFilterApartmentsElements['<=PROPERTY_PRICE_RUB'] = floatval($priceMax)*1000000;
                 $arFilterValues['PRICE'][1] = $priceMax;
 
             }
@@ -1932,12 +1937,18 @@ class SearchApartmentsComponent extends CBitrixComponent
                         switch ($option) {
                             case 'terrace':
                                 $arFilterApartments["TERRACE"] = $cityCode == 'spb' ? 34 : 4;
+
+                                $arFilterApartmentsElements["PROPERTY_TERRACE_VALUE"] = "Y";
                                 break;
                             case 'twotier':
                                 $arFilterApartments["TWO_TIER"] = $cityCode == 'spb' ? 27 : 10;
+
+                                $arFilterApartmentsElements["PROPERTY_TWO_TIER_VALUE"] = "Y";
                                 break;
                             case 'highceilings':
                                 $arFilterApartments["HIGH_CEILINGS"] = $cityCode == 'spb' ? 26 : 3;
+
+                                $arFilterApartmentsElements["PROPERTY_HIGH_CEILINGS_VALUE"] = "Y";
                                 break;
                         }
                     }
@@ -1948,12 +1959,16 @@ class SearchApartmentsComponent extends CBitrixComponent
             if($squareMin != null) {
                 $isApartmentRequest == false ? $isApartmentRequest = true : null;
                 $arFilterApartments['>=SQUARE'] = floatval($squareMin);
+
+                $arFilterApartmentsElements['>=PROPERTY_SQUARE'] = floatval($squareMin);
                 $arFilterValues['SQUARE'][0] = $squareMin;
 
             }
             if($squareMax != null) {
                 $isApartmentRequest == false ? $isApartmentRequest = true : null;
                 $arFilterApartments['<=SQUARE'] = floatval($squareMax);
+
+                $arFilterApartmentsElements['<=PROPERTY_SQUARE'] = floatval($squareMax);
                 $arFilterValues['SQUARE'][1] = $squareMax;
 
             }
@@ -1961,12 +1976,16 @@ class SearchApartmentsComponent extends CBitrixComponent
             if($kitchenSquareMin != null) {
                 $isApartmentRequest == false ? $isApartmentRequest = true : null;
                 $arFilterApartments['>=KITCHEN_SQUARE'] = floatval($kitchenSquareMin);
+
+                $arFilterApartmentsElements['>=PROPERTY_KITCHEN_SQUARE'] = floatval($kitchenSquareMin);
                 $arFilterValues['KITCHEN_SQUARE'][0] = $kitchenSquareMin;
 
             }
             if($kitchenSquareMax != null) {
                 $isApartmentRequest == false ? $isApartmentRequest = true : null;
                 $arFilterApartments['<=KITCHEN_SQUARE'] = floatval($kitchenSquareMax);
+
+                $arFilterApartmentsElements['<=PROPERTY_KITCHEN_SQUARE'] = floatval($kitchenSquareMax);
                 $arFilterValues['KITCHEN_SQUARE'][1] = $kitchenSquareMax;
 
             }
@@ -1974,12 +1993,16 @@ class SearchApartmentsComponent extends CBitrixComponent
             if($floorMin != null) {
                 $isApartmentRequest == false ? $isApartmentRequest = true : null;
                 $arFilterApartments['>=FLOOR'] = intval($floorMin);
+
+                $arFilterApartmentsElements['>=PROPERTY_FLOOR'] = floatval($floorMin);
                 $arFilterValues['FLOOR'][0] = $floorMin;
 
             }
             if($floorMax != null) {
                 $isApartmentRequest == false ? $isApartmentRequest = true : null;
                 $arFilterApartments['<=FLOOR'] = intval($floorMax);
+
+                $arFilterApartmentsElements['<=PROPERTY_FLOOR'] = floatval($floorMax);
                 $arFilterValues['FLOOR'][1] = $floorMax;
 
             }
@@ -1993,6 +2016,8 @@ class SearchApartmentsComponent extends CBitrixComponent
                         $reqApartmenttype[$keyApartmentType] = 0;
                     $arFilterSimilarApartments["ROOMS"] = array_merge(array("LOGIC" => "OR"), $reqApartmenttype);
                     $arFilterApartments["ROOMS"] = array_merge(array("LOGIC" => "OR"), $reqApartmenttype);
+
+                    $arFilterApartmentsElements["PROPERTY_ROOMS"] = array_merge(array("LOGIC" => "OR"), $reqApartmenttype);
                     $arFilterValues["APARTMENT_TYPE"] = implode(";",$reqApartmenttype);
                 }
             }
@@ -2002,6 +2027,8 @@ class SearchApartmentsComponent extends CBitrixComponent
                 $reqFinish = (is_array($finish)) ? $finish : explode(';', $finish);
                 if(count($reqFinish) > 0) {
                     $arFilterApartments["DECORATION"] = array_merge(array("LOGIC" => "OR"), $reqFinish);
+
+                    $arFilterApartmentsElements["PROPERTY_DECORATION"] = array_merge(array("LOGIC" => "OR"), $reqFinish);
                     $arFilterValues["DECORATION"] = implode(";",$reqFinish);
                 }
             }
@@ -2011,6 +2038,8 @@ class SearchApartmentsComponent extends CBitrixComponent
                 $reqBuildType = (is_array($buildtype)) ? $buildtype : explode(';', $buildtype);
                 if(count($reqBuildType) > 0) {
                     $arFilterApartments["BUILD_TYPE"] = array_merge(array("LOGIC" => "OR"), $reqBuildType);
+
+                    $arFilterApartmentsElements["PROPERTY_BUILD_TYPE"] = array_merge(array("LOGIC" => "OR"), $reqBuildType);
                     $arFilterValues["BUILD_TYPES"] = implode(";",$reqBuildType);
                 }
             }
@@ -2269,9 +2298,10 @@ class SearchApartmentsComponent extends CBitrixComponent
             $arFilterRanges = array_merge($arFilterRanges, $arFilterParamsDefault);
 
             //if (!$arSortApartments) {
-            if ($arFilterApartments)
+            if ($arFilterApartments){
                 $arFilterSimilarObjects["PROPERTY"] = $arFilterSimilarApartments;
-            $arFilterObjects["PROPERTY"] = $arFilterApartments;
+                $arFilterObjects["PROPERTY"] = $arFilterApartments;
+            }
 
             if (!empty($_GET)) {
                 $paramsValues = "";
@@ -2326,9 +2356,9 @@ class SearchApartmentsComponent extends CBitrixComponent
             }
 
             $rsObjects = \CIBlockSection::GetList(
-                $arSortObjects,
+                [],
                 $arFilterObjects,
-                true,
+                false,
                 array(
                     "ACTIVE",
                     "ACTIVE_FROM",
@@ -2347,7 +2377,21 @@ class SearchApartmentsComponent extends CBitrixComponent
             );
 
             $arObjects = array();
+            if(empty($arFilterApartments)){
+                $arFilterApartments = $arFilterApartmentsNoParams;;
+            } else {
+                $arFilterApartments = array_merge($arFilterApartmentsElements, $arFilterApartmentsNoParams);
+            }
+
+            $obGroupRes = CIBlockElement::GetList([], $arFilterApartments, Array("ACTIVE", "IBLOCK_SECTION_ID"));
+            while($arGroupElement = $obGroupRes->GetNext())
+            {
+                $arSectionCountElements[$arGroupElement["IBLOCK_SECTION_ID"]] = $arGroupElement["CNT"];
+            }
+
             while ($objects = $rsObjects->Fetch()) {
+                $objects['ELEMENT_CNT'] = $arSectionCountElements[$objects["ID"]] ?? 0;
+
                 if ($objects['ELEMENT_CNT']  ==  0)
                     continue;
 
@@ -2458,7 +2502,7 @@ class SearchApartmentsComponent extends CBitrixComponent
 
             if (empty($arObjects)){
                 $rsSimilarObjects = \CIBlockSection::GetList(
-                    $arSortObjects,
+                    [],
                     $arFilterSimilarObjects,
                     true,
                     array(

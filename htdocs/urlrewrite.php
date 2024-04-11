@@ -109,7 +109,7 @@ $arUrlRewrite=array (
     'CONDITION' => '#^/pressa/#',
     'RULE' => '',
     'ID' => 'bitrix:news',
-    'PATH' => '/moskva/pressa/index.php',
+    'PATH' => '/pressa/index.php',
     'SORT' => 100,
   ),
   1 => 
