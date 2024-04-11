@@ -88,7 +88,7 @@ $arUrlRewrite=array (
     'PATH' => '/spb/about/services/index.php',
     'SORT' => 100,
   ),
-  24 => 
+  23 => 
   array (
     'CONDITION' => '#^/moskva/pressa/#',
     'RULE' => '',
@@ -102,14 +102,6 @@ $arUrlRewrite=array (
     'RULE' => '',
     'ID' => 'bitrix:news',
     'PATH' => '/spb/pressa/index.php',
-    'SORT' => 100,
-  ),
-  23 => 
-  array (
-    'CONDITION' => '#^/pressa/#',
-    'RULE' => '',
-    'ID' => 'bitrix:news',
-    'PATH' => '/moskva/pressa/index.php',
     'SORT' => 100,
   ),
   1 => 

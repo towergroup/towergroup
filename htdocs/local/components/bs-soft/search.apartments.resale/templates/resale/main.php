@@ -45,19 +45,19 @@ $GLOBALS['default_broker'] = array(
         }
     }
 </script>
-<section class="section-heading" data-scroll-fx="data-scroll-fx">
+<!--<section class="section-heading" data-scroll-fx="data-scroll-fx">
     <div class="container">
-        <?$APPLICATION->IncludeComponent("bitrix:breadcrumb","page_mobile",Array(
+        <?/*$APPLICATION->IncludeComponent("bitrix:breadcrumb","page_mobile",Array(
                 "START_FROM" => (SITE_ID == "s2") ? 1 : 0,
                 "PATH" => "",
             )
-        );?>
-        <?
+        );*/?>
+        <?/*
         global $profi_seo_page_id;
         if(!empty($profi_seo_page_id)):
-            ?>
+            */?>
             <h1 class="h1">
-                <?
+                <?/*
                 $APPLICATION->IncludeComponent(
                     "profistudio:seo.page",
                     "h1",
@@ -70,13 +70,13 @@ $GLOBALS['default_broker'] = array(
                         "CACHE_TIME" => "36000000"
                     ),
                     false
-                );?>
+                );*/?>
             </h1>
-        <?else:?>
-            <h1 class="h1">Вторичная недвижимость <span class="desctop-title-city"><?if(SITE_ID == "s2"):?>Санкт-Петербурга<?else:?>Москвы<?endif;?></span> <span class="mobile-title-city"><?if(SITE_ID == "s2"):?>СПБ<?else:?>МСК<?endif;?></span></h1>
-        <?endif; ?>
+        <?/*else:*/?>
+            <h2 class="h1">Зарубежная недвижимость</h2>
+        <?/*endif; */?>
     </div>
-</section>
+</section>-->
 <section class="section-filters" data-scroll-fx="data-scroll-fx">
     <div class="catalog-filter-mobile"><button class="catalog-filter-mobile-control" data-catalog-filter-open="data-catalog-filter-open">
             <div></div><span>Фильтры</span>
@@ -463,7 +463,7 @@ $GLOBALS['default_broker'] = array(
                             "CACHE_TIME" => "36000000"
                         ),
                         false
-                    );?>" />
+                    );?>
             <?else:?>
                 <h1 itemprop="name">Вторичная недвижимость <span class="desctop-title-city"><?if(SITE_ID == "s2"):?>Санкт-Петербурга<?else:?>Москвы<?endif;?></span> <span class="mobile-title-city"><?if(SITE_ID == "s2"):?>СПБ<?else:?>МСК<?endif;?></span></h1>
 				<meta itemprop="description" content="Вторичная недвижимость <?if(SITE_ID == "s2"):?>Санкт-Петербурга<?else:?>Москвы<?endif;?>" />

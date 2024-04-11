@@ -1,8 +1,8 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Отзывы Tower Group");
+$APPLICATION->SetTitle("Отзывы Tower Group ");
 $APPLICATION->SetPageProperty("title", "Отзывы Tower Group");
-$APPLICATION->SetPageProperty("description", "➜ Отзывы Tower Group");
+$APPLICATION->SetPageProperty("description", "➜ Отзывы Tower Group ");
 $APPLICATION->AddChainItem("О нас", "/spb/about/");
 $APPLICATION->AddChainItem("Отзывы", "");
 $APPLICATION->AddHeadString('<link href="https://towergroup.ru/moskva/about/reviews/" rel="canonical" />',true);

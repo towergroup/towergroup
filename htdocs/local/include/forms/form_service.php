@@ -8,7 +8,10 @@ if (SITE_ID == "s1") {
     $urlPrivacy = "/privacy/";
 }
 ?>
-<h3 class="h1"><?= htmlspecialcharsBack($arInfo["TITLE"]); ?></h3>
+
+
+
+<h2 class="h1"><?= htmlspecialcharsBack($arInfo["TITLE"]); ?></h2>
 <p><?= htmlspecialcharsBack($arInfo["FOOTNOTE"]); ?></p>
 <form class="form" id="service-form">
     <input type="hidden" name="site_id" value="<?=SITE_ID;?>">

@@ -1,39 +1,46 @@
 <?
 $aMenuLinks = Array(
-    Array(
-        "О компании",
-		"/spb/about/",
-        Array(),
-        Array(),
-        ""
-    ),
-    Array(
-        "Услуги",
-        "/spb/about/services/",
-        Array(),
-        Array(),
-        ""
-    ),
-    Array(
-        "Отзывы",
-        "/spb/about/reviews/",
-        Array(),
-        Array(),
-        ""
-    ),
-    Array(
-        "Пресса",
-        "/spb/pressa/",
-        Array(),
-        Array(),
-        ""
-    ),
-    Array(
-        "Вакансии",
-        "/spb/about/vacancy/",
-        Array(),
-        Array(),
-        ""
-    ),
+	Array(
+		"О компании", 
+		"/spb/about/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Услуги", 
+		"/spb/about/services/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Отзывы", 
+		"/spb/about/reviews/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Пресса", 
+		"/spb/pressa/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Вакансии", 
+		"/spb/about/vacancy/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Карта сайта", 
+		"https://towergroup.ru/karta-sayta/", 
+		Array(), 
+		Array(), 
+		"" 
+	)
 );
 ?>

@@ -1617,7 +1617,9 @@ button.swiper-pagination-bullet {
   background-color: var(--color-gray-light);
   margin-top: 8rem;
 }
-
+.section-heading>h1 {
+    margin-bottom: 24px!important;
+}
 .detail-developer {
   display: -webkit-box;
   display: -ms-flexbox;

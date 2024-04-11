@@ -48,19 +48,19 @@ if (SITE_ID == "s2") {
         }
     }
 </script>
-<section class="section-heading" data-scroll-fx="data-scroll-fx">
+<!--<section class="section-heading" data-scroll-fx="data-scroll-fx">
     <div class="container">
-        <?$APPLICATION->IncludeComponent("bitrix:breadcrumb","page_mobile",Array(
+        <?/*$APPLICATION->IncludeComponent("bitrix:breadcrumb","page_mobile",Array(
                 "START_FROM" => (SITE_ID == "s2") ? 1 : 0,
                 "PATH" => "",
             )
-        );?>
-        <?
+        );*/?>
+        <?/*
         global $profi_seo_page_id;
         if(!empty($profi_seo_page_id)):
-            ?>
+            */?>
             <h1 class="h1">
-                <?
+                <?/*
                 $APPLICATION->IncludeComponent(
                     "profistudio:seo.page",
                     "h1",
@@ -73,13 +73,13 @@ if (SITE_ID == "s2") {
                         "CACHE_TIME" => "36000000"
                     ),
                     false
-                );?>
+                );*/?>
             </h1>
-        <?else:?>
+        <?/*else:*/?>
             <h2 class="h1">Зарубежная недвижимость</h2>
-        <?endif; ?>
+        <?/*endif; */?>
     </div>
-</section>
+</section>-->
 <section class="section-filters" data-scroll-fx="data-scroll-fx">
     <div class="catalog-filter-mobile"><button class="catalog-filter-mobile-control" data-catalog-filter-open="data-catalog-filter-open">
             <div></div><span>Фильтры</span>
@@ -486,7 +486,7 @@ if (SITE_ID == "s2") {
                             "CACHE_TIME" => "36000000"
                         ),
                         false
-                    );?>" />
+                    );?>
             <?else:?>
                 <h1 itemprop="name">Зарубежная недвижимость</h1>
 				<meta itemprop="description" content="Зарубежная недвижимость" />

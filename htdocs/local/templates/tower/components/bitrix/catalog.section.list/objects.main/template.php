@@ -49,7 +49,9 @@ $this->setFrameMode(true);
                             ?>
                             <div class="swiper-slide"><a class="object-new"
                                                          href="<?= $arSection['SECTION_PAGE_URL']; ?>">
-                                    <div class="object-new-preview swiper-lazy"
+ <meta itemprop="url" content="<?= $arSection["PICTURE_RESIZE"] ? $arSection["PICTURE_RESIZE"] : $arSection['PICTURE']['SRC']; ?>">
+
+<div class="object-new-preview swiper-lazy"
                                          data-background="<?= $arSection["PICTURE_RESIZE"] ? $arSection["PICTURE_RESIZE"] : $arSection['PICTURE']['SRC']; ?>"></div>
                                     <div class="object-new-info">
                                         <div class="h3 h4-title">«<?= $arSection['NAME']; ?>»</div>

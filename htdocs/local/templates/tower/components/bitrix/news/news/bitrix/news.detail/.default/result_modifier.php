@@ -2,6 +2,7 @@
 use Bitrix\Highloadblock as HL;
 use Bitrix\Main\Entity;
 
+
 $rsSection = CIBlockSection::GetList(
     array("SORT" => "ASC"),
     array(
@@ -365,5 +366,13 @@ while($obElement = $rsElement->GetNextElement()) {
     }
     $arResult['ITEMS'][] = $arItem;
 }
+if ($arResult['LANG_DIR'] == "/moskva") {
+    $cityseo = "Москва";
+} else {
+    $cityseo = "Санкт-Петербург";
+}
+
+// Правильное присваивание значения элементу массива
+$arResult['PROPERTIES']['CITY_SEO']['VALUE'] = $cityseo;
 
 ?>
