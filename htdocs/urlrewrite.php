@@ -88,7 +88,7 @@ $arUrlRewrite=array (
     'PATH' => '/spb/about/services/index.php',
     'SORT' => 100,
   ),
-  24 => 
+  23 => 
   array (
     'CONDITION' => '#^/moskva/pressa/#',
     'RULE' => '',

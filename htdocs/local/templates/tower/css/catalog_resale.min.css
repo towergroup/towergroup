@@ -56,13 +56,17 @@
 .list--crumbs>* {
   min-width: 0;
 }
-
+.section-heading>h1 {
+    margin-bottom: 24px!important;
+}
 .list--crumbs .list-item {
   max-width: 100%;
   padding-right: 3.5rem;
   position: relative;
 }
-
+.section-heading>h1 {
+    margin-bottom: 24px!important;
+}
 .list--crumbs .list-item svg {
   display: block;
   position: absolute;

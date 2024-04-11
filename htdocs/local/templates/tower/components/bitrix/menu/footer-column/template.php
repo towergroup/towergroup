@@ -10,7 +10,7 @@
                 </li>
             <? else: ?>
                 <li class="list-item">
-                    <a <?= (SITE_ID != 's1' && SITE_ID != 's1') ? 'target="_blank"' : '';?> href='<?= (SITE_ID != 's1' && SITE_ID != 's1') ? 'https://towergroup.ru' : '';?><?= $arItem["LINK"]; ?>' <?=$arItem["PARAMS"]["target"];?> class="list-link">
+                    <a <?= (SITE_ID != 's1' && SITE_ID != 's2') ? 'target="_blank"' : '';?> href='<?= (SITE_ID != 's1' && SITE_ID != 's2') ? 'https://towergroup.ru' : '';?><?= $arItem["LINK"]; ?>' <?=$arItem["PARAMS"]["target"];?> class="list-link">
                         <span><?= $arItem["TEXT"] ?></span>
                     </a>
                 </li>

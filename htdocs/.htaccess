@@ -11,7 +11,18 @@ ErrorDocument 404 /404.php
 </IfModule>
 
 <IfModule mod_rewrite.c>
+	RewriteEngine On
+	# Проверяем, не указывает ли запрос уже на физический файл или директорию
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	# Удаление множественных слешей
+	RewriteCond %{REQUEST_URI} ^(.*?)//+(.*)$
+	# Происходит редирект на версию URL с одним слешем на конце
+	RewriteRule . %1/%2 [R=301,L]
 	Options +FollowSymLinks
+	RewriteEngine On
+	RewriteCond %{THE_REQUEST} \ /(.+?)\/{2,}([^\s]*)
+	RewriteRule ^ %1/%2 [R=301,L]
 	RewriteEngine On
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteCond %{REQUEST_FILENAME} !-l

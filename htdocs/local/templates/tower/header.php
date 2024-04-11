@@ -116,7 +116,17 @@ if ($cache->initCache($cacheTtl, $cacheKey, $cachePath)) {
     $cache->endDataCache($arContactsLD);
 }
 
+
+
+CModule::IncludeModule('iblock');
+
+
+
+// Значение, которое необходимо установить для свойства CITY_SEO
+
+
 ?>
+
 <!DOCTYPE html>
 <html lang="<?= LANGUAGE_ID ?>">
 <head>
@@ -141,6 +151,7 @@ if ($cache->initCache($cacheTtl, $cacheKey, $cachePath)) {
     <? $APPLICATION->ShowHeadStrings(); ?>
     <? $APPLICATION->ShowHeadScripts(); ?>
     <title><? $APPLICATION->ShowTitle() ?></title>
+
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -148,6 +159,11 @@ if ($cache->initCache($cacheTtl, $cacheKey, $cachePath)) {
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#087466">
     <meta name="msapplication-TileColor" content="#087466">
     <meta name="theme-color" content="#ffffff">
+
+	<div itemscope itemtype="http://schema.org/WPHeader">
+		<meta itemprop="name" content="<?php echo $APPLICATION->ShowTitle(false); ?>"> 
+		<meta itemprop="description" content="<?php $APPLICATION->ShowProperty('description'); ?>">
+	</div>
 
     <!-- See contacts in $arContactsLD variable -->
 

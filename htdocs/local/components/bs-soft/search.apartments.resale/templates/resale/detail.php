@@ -187,6 +187,8 @@ $showSchemaOrg = !empty($arResult["OBJECT"]["FLAT"]["PROPERTY_PRICE_RUB_VALUE"])
                         <div class="swiper-container">
                             <div class="swiper-wrapper">
                                 <? foreach ($arResult["OBJECT"]["FLAT"]["PROPERTY_SLIDER_RESIZE_VALUE"] as $picture): ?>
+  										<meta itemprop="url" content="<?= $picture; ?>">
+
                                     <div class="swiper-slide swiper-lazy" data-background="<?= $picture; ?>"><a href="#object" data-modal data-object-modal="gallery"></a></div>
                                 <? endforeach; ?>
                             </div>
@@ -208,6 +210,7 @@ $showSchemaOrg = !empty($arResult["OBJECT"]["FLAT"]["PROPERTY_PRICE_RUB_VALUE"])
                                     $i = 1;
                                     foreach ($arResult["OBJECT"]["FLAT"]["PROPERTY_SLIDER_MINI_VALUE"] as $picture):
                                         ?>
+									<meta itemprop="url" content="<?= $picture; ?>">
                                         <div class="swiper-slide swiper-lazy <?= $i == 1 ? 'slide-thumb-active' : ''?>" data-background="<?= $picture; ?>"></div>
                                         <?
                                         $i++;
@@ -389,6 +392,7 @@ $showSchemaOrg = !empty($arResult["OBJECT"]["FLAT"]["PROPERTY_PRICE_RUB_VALUE"])
                                         <div>На данный момент фотографии этого объекта отсутствуют</div>
                                     </div>
                                 <? else: ?>
+									<meta itemprop="url" content="<?= $picture; ?>">
                                     <div class="object-other-image lazy" data-bg="<?= $object['PROPERTY_SLIDER_MINI_VALUE']; ?>" alt="<?= $object['NAME']; ?>"></div>
                                 <? endif; ?>
                                 <div class="object-other-info">
@@ -452,6 +456,7 @@ $showSchemaOrg = !empty($arResult["OBJECT"]["FLAT"]["PROPERTY_PRICE_RUB_VALUE"])
                                     <div class="swiper-container">
                                         <div class="swiper-wrapper">
                                             <? foreach ($arResult["OBJECT"]["FLAT"]["PROPERTY_SLIDER_VALUE"] as $picture): ?>
+												<meta itemprop="url" content="<?= $picture; ?>">
                                                 <div class="swiper-slide"><img class="swiper-lazy" data-src="<?= $picture; ?>"></div>
                                             <? endforeach; ?>
                                         </div>
@@ -472,7 +477,9 @@ $showSchemaOrg = !empty($arResult["OBJECT"]["FLAT"]["PROPERTY_PRICE_RUB_VALUE"])
                                         <?
                                         $i = 1;
                                         foreach ($arResult["OBJECT"]["FLAT"]["PROPERTY_SLIDER_MINI_VALUE"] as $picture):
+
                                             ?>
+											<meta itemprop="url" content="<?= $picture; ?>">
                                             <div class="swiper-slide swiper-lazy <?= $i == 1 ? 'slide-thumb-active' : ''?>" data-background="<?= $picture; ?>"></div>
                                             <?
                                             $i++;
@@ -494,6 +501,7 @@ $showSchemaOrg = !empty($arResult["OBJECT"]["FLAT"]["PROPERTY_PRICE_RUB_VALUE"])
                         <div class="object-other-modal-gallery-list">
                             <ul class="list">
                                 <? foreach ($arResult["OBJECT"]["FLAT"]["PROPERTY_SLIDER_VALUE"] as $picture): ?>
+									<meta itemprop="url" content="<?= $picture; ?>">
                                     <li class="list-item"><a class="list-link" href="#" style="background-image: url('<?= $picture; ?>')"></a></li>
                                 <? endforeach; ?>
                             </ul>
@@ -501,11 +509,13 @@ $showSchemaOrg = !empty($arResult["OBJECT"]["FLAT"]["PROPERTY_PRICE_RUB_VALUE"])
                     </div>
                 <? elseif(!empty($arResult["OBJECT"]["FLAT"]["PROPERTY_SLIDER_VALUE"][0])): ?>
                     <div class="object-other-modal-item">
+						<meta itemprop="url" content="<?= $picture; ?>">
                         <div class="object-other-modal-image"><img src="<?= $arResult["OBJECT"]["FLAT"]["PROPERTY_SLIDER_VALUE"][0]; ?>"></div>
                     </div>
                 <? endif; ?>
                 <? if ($arResult["OBJECT"]["FLAT"]["DETAIL_PICTURE"]["SRC"]): ?>
                     <div class="object-other-modal-item">
+						<meta itemprop="url" content="<?= $picture; ?>">
                         <div class="object-other-modal-plan"><img src="<?= $arResult["OBJECT"]["FLAT"]["DETAIL_PICTURE"]["SRC"]; ?>"></div>
                     </div>
                 <? endif; ?>

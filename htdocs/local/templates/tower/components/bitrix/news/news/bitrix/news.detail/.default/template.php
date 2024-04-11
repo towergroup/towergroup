@@ -22,6 +22,7 @@ $this->addExternalCss(SITE_TEMPLATE_PATH . "/css/press_detail.min.css");
  * Переход назад
  */
 
+
 $sectionCodeUrl = $arResult['SECTION']['CODE'] ? $arResult['SECTION']['CODE'] . '/' : null;
 if (isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])){
     $urlPieces = explode("/", $_SERVER['HTTP_REFERER']);
@@ -40,7 +41,17 @@ $url = "https://towergroup.ru/moskva/pressa/".$arResult["CODE"];
 if (SITE_ID == "s2") {
     $APPLICATION->AddHeadString('<link href="'.$url.'/" rel="canonical" />',true);
 }
-//echo "<pre>"; print_r($arResult["COMMERCIAL_OBJECTS"]); echo "</pre>";
+
+
+// Проверяем URL или путь и устанавливаем значение переменной в зависимости от результата
+if ($arResult['LANG_DIR'] == "/moskva") {
+    $cityseo = "Москва";
+} else {
+    $cityseo = "Санкт-Петербург";
+}
+
+// Правильное присваивание значения элементу массива
+$arResult['PROPERTIES']['CITY_SEO']['VALUE'] = $cityseo;
 ?>
 <section class="section-common" data-scroll-fx>
 	<div class="container"><a class="text-control text-control--back" href="<?=$backUrl;?>"><svg class="icon icon--arrow-back" width="6" height="9" viewbox="0 0 6 9">

@@ -1,8 +1,8 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Новости и акции Tower Group");
-$APPLICATION->SetPageProperty("title", "Новости и акции Tower Group");
-$APPLICATION->SetPageProperty("description", "➜ Новости и акции Tower Group");
+$APPLICATION->SetPageProperty("title", "Актуальные новости и акции Tower Group");
+$APPLICATION->SetPageProperty("description", "➜ Актуальные новости и акции Tower Group");
 //$APPLICATION->AddChainItem("Новости и акции", "");
 ?>
 

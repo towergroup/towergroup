@@ -1,8 +1,8 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-//$APPLICATION->SetTitle("Контакты");
-$APPLICATION->SetPageProperty("title", "Tower Group - Контакты");
-$APPLICATION->SetPageProperty("description", "Контактная информация: адреса офисов, телефоны, режим работы.");
+//$APPLICATION->SetTitle("Контакты Москва");
+$APPLICATION->SetPageProperty("title", "Tower Group - Контакты в Москве");
+$APPLICATION->SetPageProperty("description", "Контактная информация: адреса офисов, телефоны, режим работы в Москве.");
 $APPLICATION->SetPageProperty("header", 'class="header-white"');
 $APPLICATION->AddChainItem("Контакты", "");
 $serverUrl = 'https://'.$_SERVER['HTTP_HOST'];

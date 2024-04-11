@@ -22,13 +22,23 @@ $this->setFrameMode(true);
     <?
     $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
     $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
-    if ($arItem['PREVIEW_PICTURE']['WIDTH'] > 882)
+    if ($arItem['PREVIEW_PICTURE']['WIDTH'] > 882)?>
+		 <meta itemprop="url" content="<?= $arItem["PREVIEW_PICTURE_RESIZE"] ? $arItem["PREVIEW_PICTURE_RESIZE"] : $arItem['PREVIEW_PICTURE']['SRC'] ?>">
+<?
         $arItem["PREVIEW_PICTURE_RESIZE"] = CFile::ResizeImageGet($arItem["PREVIEW_PICTURE"]["ID"], array('width' => 882, 'height' => 390),
             BX_RESIZE_IMAGE_PROPORTIONAL, false)['src']
     ?>
     <li class="list-item <?= $index < 2 ? 'list-item-large' : '';?>" id="<?= $this->GetEditAreaId($arItem['ID']); ?>" data-scroll-fx>
-        <a class="list-link lazy" href="<?= $arItem['PROPERTIES']['LINK']['VALUE']; ?>" data-bg="<?= $arItem["PREVIEW_PICTURE_RESIZE"] ? $arItem["PREVIEW_PICTURE_RESIZE"] : $arItem['PREVIEW_PICTURE']['SRC'] ?>">
-            <div class="h3 h4-title"><?= $arItem['NAME'] ?></div>
+<div itemscope itemtype="http://schema.org/ImageObject">
+  
+
+  
+  <meta itemprop="url" content="<?= $arItem["PREVIEW_PICTURE_RESIZE"] ? $arItem["PREVIEW_PICTURE_RESIZE"] : $arItem['PREVIEW_PICTURE']['SRC'] ?>">
+  <meta itemprop="description" content="<?= $arItem["PREVIEW_PICTURE_RESIZE"] ? $arItem["PREVIEW_PICTURE_RESIZE"] : $arItem['PREVIEW_PICTURE']['SRC'] ?>">
+
+<a class="list-link lazy" href="<?= $arItem['PROPERTIES']['LINK']['VALUE']; ?>" data-bg="<?= $arItem["PREVIEW_PICTURE_RESIZE"] ? $arItem["PREVIEW_PICTURE_RESIZE"] : $arItem['PREVIEW_PICTURE']['SRC'] ?>">
+</div>
+        <div class="h3 h4-title"><?= $arItem['NAME'] ?></div>
             <div class="list-item-hide">
                 <? foreach ($arItem['PROPERTIES']['LINKS']['VALUE'] as $key => $value): ?>
                     <object>
