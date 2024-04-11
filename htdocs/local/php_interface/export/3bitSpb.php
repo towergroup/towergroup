@@ -15,8 +15,8 @@ CModule::IncludeModule("iblock");
 Loader::includeModule("highloadblock");
 $el = new CIBlockElement();
 
-//$xmlUrl = "https://towergroup.ru/3bita/data_spb.xml";
-$xmlUrl = $_SERVER['DOCUMENT_ROOT']."/3bita/data_spb.xml";
+$xmlUrl = "https://towergroup.ru/3bita/data_spb.xml";
+//$xmlUrl = $_SERVER['DOCUMENT_ROOT']."/3bita/data_spb.xml";
 
 
 
