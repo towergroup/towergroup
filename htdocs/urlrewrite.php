@@ -104,6 +104,14 @@ $arUrlRewrite=array (
     'PATH' => '/spb/pressa/index.php',
     'SORT' => 100,
   ),
+  23 => 
+  array (
+    'CONDITION' => '#^/pressa/#',
+    'RULE' => '',
+    'ID' => 'bitrix:news',
+    'PATH' => '/pressa/index.php',
+    'SORT' => 100,
+  ),
   1 => 
   array (
     'CONDITION' => '#^/.*#',

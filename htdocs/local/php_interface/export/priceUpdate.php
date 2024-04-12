@@ -64,7 +64,7 @@ $rate = getCBRRates();
  *  Вторичка МСК
  */
 $rsFlats = CIBlockElement::GetList(
-    array('ID' => 'ASC'),
+    [],
     array(
         'IBLOCK_ID' => RESALE_IBLOCK_ID
     ),
@@ -86,7 +86,7 @@ while ($arFlat = $rsFlats->Fetch()) {
  *  Вторичка СПБ
  */
 $rsFlats = CIBlockElement::GetList(
-    array('ID' => 'ASC'),
+    [],
     array(
         'IBLOCK_ID' => RESALE_SPB_IBLOCK_ID
     ),
@@ -108,7 +108,7 @@ while ($arFlat = $rsFlats->Fetch()) {
  *  Загородная МСК
  */
 $rsFlats = CIBlockElement::GetList(
-    array('ID' => 'ASC'),
+    [],
     array(
         'IBLOCK_ID' => COUNTRY_IBLOCK_ID
     ),
@@ -130,7 +130,7 @@ while ($arFlat = $rsFlats->Fetch()) {
  *  Загородная СПБ
  */
 $rsFlats = CIBlockElement::GetList(
-    array('ID' => 'ASC'),
+    [],
     array(
         'IBLOCK_ID' => COUNTRY_SPB_IBLOCK_ID
     ),
@@ -152,7 +152,7 @@ while ($arFlat = $rsFlats->Fetch()) {
  *  Зарубежная
  */
 $rsFlats = CIBlockElement::GetList(
-    array('ID' => 'ASC'),
+    [],
     array(
         'IBLOCK_ID' => FOREIGN_IBLOCK_ID
     ),
@@ -174,7 +174,7 @@ while ($arFlat = $rsFlats->Fetch()) {
  *  Новостройки (не выгрузка) МСК
  */
 $rsFlats = CIBlockElement::GetList(
-    array('ID' => 'ASC'),
+    [],
     array(
         'IBLOCK_ID' => NEW_BUILD_IBLOCK_ID,
         'PROPERTY_NO_UPDATE_VALUE' => 'Y'
@@ -197,7 +197,7 @@ while ($arFlat = $rsFlats->Fetch()) {
  *  Новостройки (не выгрузка) СПБ
  */
 $rsFlats = CIBlockElement::GetList(
-    array('ID' => 'ASC'),
+    [],
     array(
         'IBLOCK_ID' => NEW_BUILD_SPB_IBLOCK_ID,
         'PROPERTY_NO_UPDATE_VALUE' => 'Y'

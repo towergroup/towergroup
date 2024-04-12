@@ -1254,7 +1254,7 @@ class SearchApartmentsComponent extends CBitrixComponent
                         $siteUrl = '/moskva';
                         break;
                     case s2:
-                        $siteUrl = '';
+                        $siteUrl = '/spb';
                         break;
                     default:
                         $siteUrl = 'https://towergroup.ru';
