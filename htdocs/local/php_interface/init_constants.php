@@ -53,8 +53,8 @@ if (!defined("ICONS_HIGHLOADBLOCK_ID")) define(("ICONS_HIGHLOADBLOCK_ID"), 12); 
 
 //AMO
 //if (!defined("AMO_CRM_URL")) define(("AMO_CRM_URL"), 'https://webhook.site/7b3b14fe-cfa2-41a1-81a6-b70b6aa141d5'); // URL AmoCRM
-if (!defined("AMO_CRM_URL")) define(("AMO_CRM_URL"), 'https://amo.router8.ru/hooks/towergroup/site'); // URL AmoCRM
-
+//if (!defined("AMO_CRM_URL")) define(("AMO_CRM_URL"), 'https://amo.router8.ru/hooks/towergroup/site'); // URL AmoCRM
+if (!defined("AMO_CRM_URL")) define(("AMO_CRM_URL"), 'https://towergroup.ru/amo/amo.php');
 //Company phone
 if (!defined("COMPANY_PHONE")) define(("COMPANY_PHONE"), '+7 (812) 467-45-05');
 
